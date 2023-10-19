@@ -25,24 +25,33 @@ public class LinearEquation {
     }
 
     public String equation() {
+        String bOutput = " + " + (yIntercept());
+        String xOutput = (y2 - y1) + "/" + (x2 - x1) + "x";
+        if (y2 == y1) {
+            return "y = " + yIntercept();
+        }
         if ((y2 - y1) % (x2 - x1) == 0) {
             if (Math.abs((y2 - y1)/(x2 - x1)) == 1) {
                 if ((y2 - y1)/(x2 - x1) == 1) {
-                    return "y = x " + yIntercept();
+                    xOutput = "x";
                 } else {
-                    return "y = -x + " + yIntercept();
+                    xOutput = "-x";
                 }
             }
-            return "y = " + (y2 - y1)/(x2 - x1) + "x + " + yIntercept();
-        }
-        if ((x2 - x1) < 0) {
+            xOutput = (y2 - y1)/(x2 - x1) + "x";
+        } else if ((x2 - x1) < 0) {
             if ((y2 - y1) < 0) {
-                return "y = " + Math.abs(y2 - y1) + "/" + Math.abs(x2 - x1) + "x + " + yIntercept();
+                xOutput = Math.abs(y2 - y1) + "/" + Math.abs(x2 - x1) + "x";
             } else {
-                return "y = -" + (y2 - y1) + "/" + Math.abs(x2 - x1) + "x + " + yIntercept();
+                xOutput = "-" + (y2 - y1) + "/" + Math.abs(x2 - x1) + "x";
             }
         }
-        return "y = " + (y2 - y1) + "/" + (x2 - x1) + "x + " + yIntercept();
+        if (yIntercept() == 0) {
+            bOutput = "";
+        } else if (yIntercept() < 0) {
+            bOutput = " - " + Math.abs(yIntercept());
+        }
+        return "y = " + xOutput + bOutput;
     }
 
     public String coordinateForX(double x) {
