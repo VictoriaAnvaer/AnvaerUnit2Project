@@ -32,13 +32,13 @@ public class LinearEquation {
         }
         if ((y2 - y1) % (x2 - x1) == 0) {
             if (Math.abs((y2 - y1)/(x2 - x1)) == 1) {
+                xOutput = (y2 - y1)/(x2 - x1) + "x";
                 if ((y2 - y1)/(x2 - x1) == 1) {
                     xOutput = "x";
                 } else {
                     xOutput = "-x";
                 }
             }
-            xOutput = (y2 - y1)/(x2 - x1) + "x";
         } else if ((x2 - x1) < 0) {
             if ((y2 - y1) < 0) {
                 xOutput = Math.abs(y2 - y1) + "/" + Math.abs(x2 - x1) + "x";
