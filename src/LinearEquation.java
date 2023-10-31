@@ -31,8 +31,8 @@ public class LinearEquation {
             return "y = " + yIntercept();
         }
         if ((y2 - y1) % (x2 - x1) == 0) {
+            xOutput = (y2 - y1)/(x2 - x1) + "x";
             if (Math.abs((y2 - y1)/(x2 - x1)) == 1) {
-                xOutput = (y2 - y1)/(x2 - x1) + "x";
                 if ((y2 - y1)/(x2 - x1) == 1) {
                     xOutput = "x";
                 } else {
